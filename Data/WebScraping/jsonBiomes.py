@@ -162,6 +162,7 @@ def jsonBiomes():
     dataframeEndBiomes = linksBiomeDimension_dataframeBiomesDimensions(linksTheEnd,'the_end')
     dataframeBiomes = pd.concat([dataframeOverworldBiomes,dataframeNetherBiomes,dataframeEndBiomes],ignore_index=True)
 
+    dataframe_json([dataframeOverworldBiomes,dataframeNetherBiomes,dataframeEndBiomes],['_jsonBiomesOverworld','_jsonBiomesNether','_jsonBiomesEnd'])
     dataframe_json([dataframeBiomes],['jsonBiomes'])
 
 if __name__=='__main__':
