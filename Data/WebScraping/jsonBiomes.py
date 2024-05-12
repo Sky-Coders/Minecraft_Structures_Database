@@ -49,7 +49,7 @@ def jsonBiomes():
     def linksBiomeDimension_dataframeBiomesDimensions(linksDimension,Dimension):
       dataframeBiomeDimensionIDs = linksBiomeDimension_dataframeBiomeDimensionIDs(linksDimension)
       lenRecords = len(dataframeBiomeDimensionIDs)
-      dataframeBiomeDimensionIDs['dimension.identifier'] = pd.DataFrame(data=[(Dimension)]*lenRecords,columns=['dimension.identifier'])
+      dataframeBiomeDimensionIDs['dimension_identifier'] = pd.DataFrame(data=[(Dimension)]*lenRecords,columns=['dimension.identifier'])
       return dataframeBiomeDimensionIDs
 
     def linksBiomeDimension_dataframeBiomeDimensionIDs(linksDimension):
@@ -68,7 +68,7 @@ def jsonBiomes():
       tablesBiome = linkBiome_tablesBiome(amountBiome,linkBiome)
       dataframesBiome = []
       for tableBiome in tablesBiome:
-        dataColumnsBiomesDimension = ['name', 'temperature', 'precipitation', 'grass color', 'foliage color', 'water color']
+        dataColumnsBiomesDimension = ['name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color']
         dataBiome = tableBiome_dataBiome(tableBiome)
         dataframeBiome = pd.DataFrame(data=[dataBiome],columns=dataColumnsBiomesDimension)
         dataframesBiome.append(dataframeBiome)
@@ -132,7 +132,7 @@ def jsonBiomes():
       for rowBiomeID in rowsBiomesIDs:
         dataBiomeID = rowBiomeID_dataBiomeID(rowBiomeID)
         dataBiomesIDs.append(dataBiomeID)
-      dataColumnsBiomeIDs = ['identifier','numeric id','name']
+      dataColumnsBiomeIDs = ['identifier','numeric_id','name']
       return pd.DataFrame(data=dataBiomesIDs,columns=dataColumnsBiomeIDs)
 
     def linkBiomeIDs_tableBiomeIDS(linkBiomeIDs):

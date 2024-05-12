@@ -3,7 +3,7 @@ from GenericsFunctions import dataframe_json
 
 def jsonDimensions():
     dataDimensions = [('overworld',0,'Overworld'),('the_nether',-1,'Nether'),('the_end',1,'The End')]
-    dataColumnsDimension = ['identifier','numeric id','name']
+    dataColumnsDimension = ['identifier','numeric_id','name']
     dataframeDimensions = pd.DataFrame(data=dataDimensions, columns=dataColumnsDimension)
     dataframe_json([dataframeDimensions],['jsonDimensions'])
 
