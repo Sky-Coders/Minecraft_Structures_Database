@@ -1,5 +1,4 @@
 import pandas as pd
-from bs4 import BeautifulSoup
 from GenericsFunctions import linkName_textName as linkBiome_textBiome
 from GenericsFunctions import dataframe_json
 
