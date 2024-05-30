@@ -1,8 +1,102 @@
--- Minecraft Structures Database 
--- Descripción: Archivo SQL para la creación de la base de datos y DDL 
--- Autores:
+-- MariaDB dump 10.19  Distrib 10.11.7-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: Minecraft_Structures_Database
+-- ------------------------------------------------------
+-- Server version	10.11.7-MariaDB
 
--- DDL: Creación de la base de datos
-DROP DATABASE IF EXISTS Minecraft_Structures_Database;
-CREATE DATABASE Minecraft_Structures_Database:
-USE Minecraft_Structures_Database;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `block`
+--
+
+DROP TABLE IF EXISTS `block`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `block` (
+  `identifier` varchar(30) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `blast_resistance` varchar(5) DEFAULT NULL,
+  `hardness` varchar(5) DEFAULT NULL,
+  `luminosity` enum('Yes','No') DEFAULT NULL,
+  `transparency` enum('Yes','No','Partial') DEFAULT NULL,
+  PRIMARY KEY (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `block`
+--
+
+LOCK TABLES `block` WRITE;
+/*!40000 ALTER TABLE `block` DISABLE KEYS */;
+/*!40000 ALTER TABLE `block` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dimension`
+--
+
+DROP TABLE IF EXISTS `dimension`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dimension` (
+  `identifier` varchar(30) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `numeric_id` tinyint(3) unsigned DEFAULT 0,
+  PRIMARY KEY (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dimension`
+--
+
+LOCK TABLES `dimension` WRITE;
+/*!40000 ALTER TABLE `dimension` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dimension` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `structure`
+--
+
+DROP TABLE IF EXISTS `structure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `structure` (
+  `identifier` varchar(30) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`identifier`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `structure`
+--
+
+LOCK TABLES `structure` WRITE;
+/*!40000 ALTER TABLE `structure` DISABLE KEYS */;
+/*!40000 ALTER TABLE `structure` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-05-29 23:57:38
