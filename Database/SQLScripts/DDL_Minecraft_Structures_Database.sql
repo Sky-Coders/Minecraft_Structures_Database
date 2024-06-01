@@ -47,3 +47,31 @@ CREATE TABLE loot (
     	stackable TINYINT UNSIGNED
     	);
 
+CREATE TABLE biome (
+	identifier VARCHAR(30) PRIMARY KEY,
+	dimension_identifier VARCHAR(30) NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	numeric_id TINYINT UNSIGNED UNIQUE,
+	precipitation ENUM("yes","no") NOT NULL,
+	grass_color CHAR(7) NOT NULL,
+	foliage_color CHAR(7) NOT NULL,
+	temperature DECIMAL(4,2) NOT NULL,
+	water_color CHAR(7) NOT NULL,
+
+	CONSTRAINT reference_between_biome_dimension FOREIGN KEY (dimension_identifier) REFERENCES dimension (identifier)
+);
+
+CREATE TABLE structure_biome (
+	structure_identifier VARCHAR(30) NOT NULL,
+	biome_identifier VARCHAR(30) NOT NULL,
+
+	CONSTRAINT reference_between_strucbiom_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier),
+	CONSTRAINT reference_between_strucbiom_biome FOREIGN KEY (biome_identifier) REFERENCES biome (identifier)
+);
+
+CREATE TABLE structure_block (
+	structure_identifier VARCHAR(30) NOT NULL,
+	block_identifier VARCHAR(30) NOT NULL,
+	CONSTRAINT reference_between_strucblock_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier),
+	CONSTRAINT reference_between_strucblock_block FOREIGN KEY (block_identifier) REFERENCES block (identifier)
+);
