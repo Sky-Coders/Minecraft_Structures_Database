@@ -8,41 +8,42 @@ CREATE DATABASE Minecraft_Structures_Database;
 USE Minecraft_Structures_Database;
 
 
-CREATE TABLE structure(
+CREATE TABLE structure (
 	identifier VARCHAR(30) PRIMARY KEY,
 	name VARCHAR(30) UNIQUE
 	);
 
-CREATE TABLE dimension(
+CREATE TABLE dimension (
 	identifier VARCHAR(30) PRIMARY KEY,
 	name VARCHAR(30) NOT NULL,
 	numeric_id TINYINT DEFAULT 0
 	);
 
-CREATE TABLE block(
+CREATE TABLE block (
 	identifier VARCHAR(30) PRIMARY KEY,
 	name VARCHAR(30),
 	blast_resistance VARCHAR(5),
 	hardness VARCHAR(5),
-	luminosity ENUM("Yes", "No"),
-	transparency ENUM("Yes", "No","Partial")
+	luminosity ENUM("yes", "no"),
+	transparency ENUM("yes", "no","partial")
 	);
 
-CREATE TABLE drops(
+CREATE TABLE drops (
 	identifier VARCHAR(30) PRIMARY KEY,
     	name VARCHAR(30) NOT NULL
     	);
     
-CREATE TABLE mob(
+CREATE TABLE mob (
 	identifier VARCHAR(30) PRIMARY KEY,
     	name VARCHAR(30) UNIQUE,
     	aggressiveness ENUM("passive", "neutral", "hostile")
     	);
     
-CREATE TABLE loot(
+CREATE TABLE loot (
 	identifier VARCHAR(30) PRIMARY KEY,
     	name VARCHAR(30) NOT NULL,
     	rarity VARCHAR(30),
-    	renewable ENUM("Yes", "No"),
+    	renewable ENUM("yes", "no"),
     	stackable TINYINT UNSIGNED
     	);
+
