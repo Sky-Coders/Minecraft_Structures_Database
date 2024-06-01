@@ -28,21 +28,21 @@ CREATE TABLE block(
 	transparency ENUM("Yes", "No","Partial")
 	);
 
-CREATE TABLE drop(
+CREATE TABLE drops(
 	identifier VARCHAR(30) PRIMARY KEY,
-    name VARCHAR(30) NOT NULL
-    );
+    	name VARCHAR(30) NOT NULL
+    	);
     
 CREATE TABLE mob(
 	identifier VARCHAR(30) PRIMARY KEY,
-    name VARCHAR(30) UNIQUE,
-    aggressiveness ENUM("passive", "neutral", "hostile")
-    );
+    	name VARCHAR(30) UNIQUE,
+    	aggressiveness ENUM("passive", "neutral", "hostile")
+    	);
     
 CREATE TABLE loot(
 	identifier VARCHAR(30) PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
-    rarity VARCHAR(30),
-    renewable ENUM("Yes", "No"),
-    stackable TINYINT UNSIGNED
-    );
+    	name VARCHAR(30) NOT NULL,
+    	rarity VARCHAR(30),
+    	renewable ENUM("Yes", "No"),
+    	stackable TINYINT UNSIGNED
+    	);
