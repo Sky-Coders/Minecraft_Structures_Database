@@ -4,7 +4,7 @@
 
 -- DDL: Creación de la base de datos
 DROP DATABASE IF EXISTS Minecraft_Structures_Database;
-CREATE DATABASE Minecraft_Structures_Database:
+CREATE DATABASE Minecraft_Structures_Database;
 USE Minecraft_Structures_Database;
 
 
@@ -15,8 +15,8 @@ CREATE TABLE structure(
 
 CREATE TABLE dimension(
 	identifier VARCHAR(30) PRIMARY KEY,
-	name VARCHAR(30),
-	numeric_id TINYINT UNSIGNED DEFAULT 0
+	name VARCHAR(30) NOT NULL,
+	numeric_id TINYINT DEFAULT 0
 	);
 
 CREATE TABLE block(
@@ -27,3 +27,22 @@ CREATE TABLE block(
 	luminosity ENUM("Yes", "No"),
 	transparency ENUM("Yes", "No","Partial")
 	);
+
+CREATE TABLE drop(
+	identifier VARCHAR(30) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL
+    );
+    
+CREATE TABLE mob(
+	identifier VARCHAR(30) PRIMARY KEY,
+    name VARCHAR(30) UNIQUE,
+    aggressiveness ENUM("passive", "neutral", "hostile")
+    );
+    
+CREATE TABLE loot(
+	identifier VARCHAR(30) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    rarity VARCHAR(30),
+    renewable ENUM("Yes", "No"),
+    stackable TINYINT UNSIGNED
+    );
