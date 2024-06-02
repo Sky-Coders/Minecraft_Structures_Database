@@ -75,3 +75,33 @@ CREATE TABLE structure_block (
 	CONSTRAINT reference_between_strucblock_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier),
 	CONSTRAINT reference_between_strucblock_block FOREIGN KEY (block_identifier) REFERENCES block (identifier)
 );
+
+CREATE TABLE drops_mob (
+	drops_identifier VARCHAR(30) NOT NULL,
+	mob_identifier VARCHAR(30) NOT NULL,
+
+
+	CONSTRAINT reference_between_dropsmob_drops FOREIGN KEY (drops_identifier) REFERENCES drops (identifier),
+	CONSTRAINT reference_between_dropsmob_mob FOREIGN KEY (mob_identifier) REFERENCES mob (identifier)
+);
+
+
+CREATE TABLE structure_mob (
+	structure_identifier VARCHAR(30) NOT NULL,
+	mob_identifier VARCHAR(30) NOT NULL,
+
+	CONSTRAINT reference_between_strucmob_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier),
+	CONSTRAINT reference_between_strucmob_mob FOREIGN KEY (mob_identifier) REFERENCES mob (identifier)
+);
+
+
+CREATE TABLE structure_loot (
+	loot_identifier VARCHAR(30) NOT NULL,
+	structure_identifier VARCHAR(30) NOT NULL,
+	stack_size_lower TINYINT NOT NULL,
+	stack_size_upper TINYINT NOT NULL, 
+	chance DECIMAL(3,1) NOT NULL,
+
+	CONSTRAINT reference_between_strucloot_loot FOREIGN KEY (loot_identifier) REFERENCES loot (identifier),
+	CONSTRAINT reference_between_strucloot_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier)
+);
