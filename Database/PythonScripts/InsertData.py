@@ -18,7 +18,7 @@ def fromJSON_InsertData(DMLfile,jsonName,tableName,columnsTable=None,functionsAp
         dataRecords.append('('+record_reprData(record)+')')    
     DMLfile.write(',\n\t'.join(dataRecords))
     
-    DMLfile.write('\n\t;')
+    DMLfile.write(';')
 
 def columnsTable_columnsRepr(columnsTable):
     return '('+','.join(columnsTable)+')'
@@ -35,4 +35,5 @@ def value_normalize(value):
     
 if __name__=='__main__':
     with open('../SQLScripts/DML_Minecraft_Structures_Database.sql','w') as DMLfile:
-        fromJSON_InsertData(DMLfile,'Dimensions','dimension',columnsTable=('identifier','numeric_id','name'))
+        #Aqui se van los poner las diferentes llamadas a la
+        #funcion fromJSON_InsertData de las respectivas tablas
