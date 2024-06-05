@@ -42,3 +42,4 @@ if __name__=='__main__':
         #funcion fromJSON_InsertData de las respectivas tablas
         fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
         fromJSON_InsertData(DMLfile,'Biomes','biome',['identifier', 'numeric_id', 'name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color', 'dimension_identifier'])
+        fromJSON_InsertData(DMLfile,'Structures','structure',['identifier', 'name'])
