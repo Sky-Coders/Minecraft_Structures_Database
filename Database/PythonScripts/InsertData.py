@@ -1,4 +1,5 @@
 import pandas as pd
+from genericFunctions import *
 
 def fromJSON_InsertData(DMLfile,jsonName,tableName,columnsTable=None,functionsApply=[]):
     jsonPath = '../../Data/dataJSON/json'+jsonName+'.json'
@@ -10,7 +11,7 @@ def fromJSON_InsertData(DMLfile,jsonName,tableName,columnsTable=None,functionsAp
     if not columnsTable:
         headerInsert = f'INSERT INTO {tableName} VALUES\n\t'
     else:
-        headerInsert = f'INSERT INTO {tableName}'+columnsTable_columnsRepr(columnsTable)+'VALUES\n\t'
+        headerInsert = f'INSERT INTO {tableName}'+columnsTable_columnsRepr(columnsTable)+' VALUES\n\t'
     DMLfile.write(headerInsert)
 
     dataRecords = []
@@ -38,8 +39,14 @@ if __name__=='__main__':
         DMLfile.write('-- Minecraft Structures Database\n')
         DMLfile.write('-- Descripción: Archivo SQL para insertar los registros a base de datos\n')
         DMLfile.write('-- Autores:\n\n')
-        #Aqui se van los poner las diferentes llamadas a la
-        #funcion fromJSON_InsertData de las respectivas tablas
         fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
         fromJSON_InsertData(DMLfile,'Biomes','biome',['identifier', 'numeric_id', 'name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color', 'dimension_identifier'])
         fromJSON_InsertData(DMLfile,'Structures','structure',['identifier', 'name'])
+        functionsApply_Structures_Biomes = [(str_search_replace('mushroom_field_shore','mushroom_fields'),'biome_identifier'),
+                                            (str_search_replace('desert_hills','desert'),'biome_identifier'),
+                                            (str_search_replace('jungle_hills','jungle'),'biome_identifier'),
+                                            (str_search_replace('deep_warm_ocean','warm_ocean'),'biome_identifier'),
+                                            (str_search_replace('taiga_hills','taiga'),'biome_identifier'),
+                                            (str_search_replace('snowy_taiga_hills','taiga'),'biome_identifier'),
+                                            (str_search_replace('dark_forest_hills','dark_forest'),'biome_identifier')]
+        fromJSON_InsertData(DMLfile,'Structures_Biomes','structure_biome',functionsApply=functionsApply_Structures_Biomes)
