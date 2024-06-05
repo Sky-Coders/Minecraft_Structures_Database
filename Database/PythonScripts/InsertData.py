@@ -18,7 +18,7 @@ def fromJSON_InsertData(DMLfile,jsonName,tableName,columnsTable=None,functionsAp
         dataRecords.append('('+record_reprData(record)+')')    
     DMLfile.write(',\n\t'.join(dataRecords))
     
-    DMLfile.write(';')
+    DMLfile.write(';\n\n')
 
 def columnsTable_columnsRepr(columnsTable):
     return '('+','.join(columnsTable)+')'

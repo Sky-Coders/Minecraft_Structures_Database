@@ -5,7 +5,9 @@
 INSERT INTO dimension(identifier,numeric_id,name)VALUES
 	('overworld' , 0 , 'overworld'),
 	('the_nether' , -1 , 'nether'),
-	('the_end' , 1 , 'the end');INSERT INTO biome(identifier,numeric_id,name,temperature,precipitation,grass_color,foliage_color,water_color,dimension_identifier)VALUES
+	('the_end' , 1 , 'the end');
+
+INSERT INTO biome(identifier,numeric_id,name,temperature,precipitation,grass_color,foliage_color,water_color,dimension_identifier)VALUES
 	('ocean' , 44 , 'ocean' , 0.5 , 'yes' , '#8eb971' , '#71a74d' , '#3f76e4' , 'overworld'),
 	('deep_ocean' , 45 , 'deep ocean' , 0.5 , 'yes' , '#8eb971' , '#71a74d' , '#3f76e4' , 'overworld'),
 	('frozen_ocean' , 48 , 'frozen ocean' , 0.0 , 'yes' , '#80b497' , '#60a17b' , '#3938c9' , 'overworld'),
@@ -69,7 +71,9 @@ INSERT INTO dimension(identifier,numeric_id,name)VALUES
 	('end_highlands' , 60 , 'end highlands' , 0.5 , 'no' , '#8eb971' , '#71a74d' , '#3f76e4' , 'the_end'),
 	('end_midlands' , 61 , 'end midlands' , 0.5 , 'no' , '#8eb971' , '#71a74d' , '#3f76e4' , 'the_end'),
 	('end_barrens' , 63 , 'end barrens' , 0.5 , 'no' , '#8eb971' , '#71a74d' , '#3f76e4' , 'the_end'),
-	('small_end_islands' , 62 , 'small end islands' , 0.5 , 'no' , '#8eb971' , '#71a74d' , '#3f76e4' , 'the_end');INSERT INTO structure(identifier,name)VALUES
+	('small_end_islands' , 62 , 'small end islands' , 0.5 , 'no' , '#8eb971' , '#71a74d' , '#3f76e4' , 'the_end');
+
+INSERT INTO structure(identifier,name)VALUES
 	('ancient_city' , 'ancient city'),
 	('mineshaft' , 'mineshaft'),
 	('stronghold' , 'stronghold'),
@@ -105,3 +109,4 @@ INSERT INTO dimension(identifier,numeric_id,name)VALUES
 	('obsidian_platform' , 'obsidian platform'),
 	('void_start_platform' , 'void start platform'),
 	('ruined_portal' , 'ruined portal');
+
