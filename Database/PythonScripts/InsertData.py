@@ -38,6 +38,7 @@ if __name__=='__main__':
         DMLfile.write('-- Minecraft Structures Database\n')
         DMLfile.write('-- Descripción: Archivo SQL para insertar los registros a base de datos\n')
         DMLfile.write('-- Autores:\n\n')
-        DMLfile.write('USE Minecraft_Structures_Database;')
         #Aqui se van los poner las diferentes llamadas a la
         #funcion fromJSON_InsertData de las respectivas tablas
+        fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
+        fromJSON_InsertData(DMLfile,'Biomes','biome',['identifier', 'numeric_id', 'name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color', 'dimension_identifier'])
