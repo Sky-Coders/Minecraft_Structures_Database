@@ -39,9 +39,13 @@ if __name__=='__main__':
         DMLfile.write('-- Minecraft Structures Database\n')
         DMLfile.write('-- Descripción: Archivo SQL para insertar los registros a base de datos\n')
         DMLfile.write('-- Autores:\n\n')
+
         fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
+        
         fromJSON_InsertData(DMLfile,'Biomes','biome',['identifier', 'numeric_id', 'name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color', 'dimension_identifier'])
+        
         fromJSON_InsertData(DMLfile,'Structures','structure',['identifier', 'name'])
+        
         functionsApply_Structures_Biomes = [(str_search_replace('mushroom_field_shore','mushroom_fields'),'biome_identifier'),
                                             (str_search_replace('desert_hills','desert'),'biome_identifier'),
                                             (str_search_replace('jungle_hills','jungle'),'biome_identifier'),
@@ -50,3 +54,9 @@ if __name__=='__main__':
                                             (str_search_replace('snowy_taiga_hills','taiga'),'biome_identifier'),
                                             (str_search_replace('dark_forest_hills','dark_forest'),'biome_identifier')]
         fromJSON_InsertData(DMLfile,'Structures_Biomes','structure_biome',functionsApply=functionsApply_Structures_Biomes)
+        
+        functionsApply_Blocks = [(str_cast_numeric(float),'blast_resistance'),
+                                 (str_cast_numeric(float),'hardness')]
+        fromJSON_InsertData(DMLfile,'Blocks','block',functionsApply=functionsApply_Blocks)
+
+        

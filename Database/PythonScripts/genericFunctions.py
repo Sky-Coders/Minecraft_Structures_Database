@@ -6,3 +6,11 @@ def str_search_replace(strSearch,strReplace):
         else:
             return string
     return str_search_replaceAux
+
+def str_cast_numeric(typeNumeric):
+    from re import search , sub
+    def str_cast_numericAux(string):
+        numeric = search(r'[0-9,]+\.?[0-9,]*',string)[0]
+        numeric = sub(r'\,','',numeric)
+        return typeNumeric(numeric)
+    return str_cast_numericAux
