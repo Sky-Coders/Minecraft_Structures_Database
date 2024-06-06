@@ -80,3 +80,5 @@ if __name__=='__main__':
         fromJSON_InsertData(DMLfile,'Structures_Loots','structure_loot',functionsApply=functionsApply_Structures_Loots)
 
         fromJSON_InsertData(DMLfile,'Mobs','mob')
+
+        fromJSON_InsertData(DMLfile,'Structures_Mobs','structure_mob')
