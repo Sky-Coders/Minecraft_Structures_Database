@@ -82,3 +82,7 @@ if __name__=='__main__':
         fromJSON_InsertData(DMLfile,'Mobs','mob')
 
         fromJSON_InsertData(DMLfile,'Structures_Mobs','structure_mob')
+
+        functionsApply_Drops = [(str_search_replace("rabbit's_foot",'rabbits_foot'),'identifier'),
+                                (str_search_replace("rabbit's foot",'rabbits foot'),'name')]
+        fromJSON_InsertData(DMLfile,'Drops','drops',functionsApply=functionsApply_Drops)
