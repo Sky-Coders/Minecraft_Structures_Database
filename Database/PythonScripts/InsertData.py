@@ -39,7 +39,7 @@ if __name__=='__main__':
         DMLfile.write('-- Minecraft Structures Database\n')
         DMLfile.write('-- Descripción: Archivo SQL para insertar los registros a base de datos\n')
         DMLfile.write('-- Autores:\n\n')
-
+        
         fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
         
         fromJSON_InsertData(DMLfile,'Biomes','biome',['identifier', 'numeric_id', 'name', 'temperature', 'precipitation', 'grass_color', 'foliage_color', 'water_color', 'dimension_identifier'])
@@ -59,4 +59,9 @@ if __name__=='__main__':
                                  (str_cast_numeric(float),'hardness')]
         fromJSON_InsertData(DMLfile,'Blocks','block',functionsApply=functionsApply_Blocks)
 
-        
+        functionsApply_Structures_Blocks = [(str_search_replace('village#abandoned_villages','abandoned_village'),'structure_identifier'),
+                                            (str_search_replace('iceberg_\(','iceberg'),'structure_identifier'),
+                                            (str_search_replace('jungle_pyramid','jungle_temple'),'structure_identifier'),
+                                            (str_search_replace('monster_room','dungeon'),'structure_identifier'),
+                                            (str_search_replace('java_edition','stairs'),'block_identifier')]
+        fromJSON_InsertData(DMLfile,'Structures_Blocks','structure_block',functionsApply=functionsApply_Structures_Blocks)

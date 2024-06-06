@@ -51,8 +51,8 @@ CREATE TABLE block (
 	);
 
 CREATE TABLE structure_block (
-	structure_identifier VARCHAR(40) NOT NULL,
-	block_identifier VARCHAR(30) NOT NULL,
+	structure_identifier VARCHAR(30) NOT NULL,
+	block_identifier VARCHAR(40) NOT NULL,
 	CONSTRAINT reference_between_strucblock_structure FOREIGN KEY (structure_identifier) REFERENCES structure (identifier),
 	CONSTRAINT reference_between_strucblock_block FOREIGN KEY (block_identifier) REFERENCES block (identifier)
 	);
