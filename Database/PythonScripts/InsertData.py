@@ -41,7 +41,6 @@ if __name__=='__main__':
     with open('../SQLScripts/DML_Minecraft_Structures_Database.sql','w',encoding='utf-8') as DMLfile:
         DMLfile.write('-- Minecraft Structures Database\n')
         DMLfile.write('-- Descripción: Archivo SQL para insertar los registros a base de datos\n')
-        DMLfile.write('-- Autores:\n\n')
         
         fromJSON_InsertData(DMLfile,'Dimensions','dimension',['identifier', 'numeric_id', 'name'])
         
