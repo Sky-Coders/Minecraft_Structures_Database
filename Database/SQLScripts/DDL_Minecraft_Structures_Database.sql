@@ -58,8 +58,8 @@ CREATE TABLE structure_block (
 	);
 
 CREATE TABLE loot (
-	identifier VARCHAR(30) PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
+	identifier VARCHAR(40) PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
     rarity VARCHAR(30) NOT NULL,
     renewable ENUM("yes", "no") NOT NULL,
     stackable TINYINT UNSIGNED NOT NULL
@@ -67,7 +67,7 @@ CREATE TABLE loot (
 
 CREATE TABLE structure_loot (
 	structure_identifier VARCHAR(30) NOT NULL,
-	loot_identifier VARCHAR(30) NOT NULL,
+	loot_identifier VARCHAR(40) NOT NULL,
 	stack_size_lower TINYINT NOT NULL,
 	stack_size_upper TINYINT NOT NULL, 
 	chance DECIMAL(5,2) NOT NULL,

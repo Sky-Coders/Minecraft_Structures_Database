@@ -16,3 +16,6 @@ def str_cast_numeric(typeNumeric):
         numeric = sub(r'\,','',numeric)
         return typeNumeric(numeric)
     return str_cast_numericAux
+
+def drop_duplicates(dataframe):
+    dataframe.drop_duplicates(inplace=True)

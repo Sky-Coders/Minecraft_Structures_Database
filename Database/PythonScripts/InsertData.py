@@ -6,7 +6,10 @@ def fromJSON_InsertData(DMLfile,jsonName,tableName,columnsTable=None,functionsAp
     dataframe = pd.read_json(jsonPath)
 
     for function , column in functionsApply:
-        dataframe[column] = dataframe[column].map(function)
+        if column:
+            dataframe[column] = dataframe[column].map(function)
+        else:
+            function(dataframe)
 
     if not columnsTable:
         headerInsert = f'INSERT INTO {tableName} VALUES\n\t'
@@ -65,3 +68,9 @@ if __name__=='__main__':
                                             (str_search_replace('monster_room','dungeon'),'structure_identifier'),
                                             (str_search_replace('java_edition','stairs'),'block_identifier')]
         fromJSON_InsertData(DMLfile,'Structures_Blocks','structure_block',functionsApply=functionsApply_Structures_Blocks)
+
+        functionsApply_Loots = [(str_search_replace('flower charge, field masoned, bordure indented, globe, snoutcommoncreeper charge, skull chargeuncommonthingepic','Common'),'rarity'),
+                                (str_search_replace("bottle_o'_enchanting",'bottle_o_enchanting'),'identifier'),
+                                (str_search_replace("bottle o' enchanting",'Bottle O Enchanting'),'name'),
+                                (drop_duplicates,None)]
+        fromJSON_InsertData(DMLfile,'Loots','loot',functionsApply=functionsApply_Loots)
