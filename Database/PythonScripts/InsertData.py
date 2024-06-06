@@ -78,3 +78,5 @@ if __name__=='__main__':
         functionsApply_Structures_Loots = [(str_search_replace("bottle_o'_enchanting",'bottle_o_enchanting'),'loot_identifier'),
                                            (str_search_replace('jungle_pyramid','jungle_temple'),'structure_identifier')]
         fromJSON_InsertData(DMLfile,'Structures_Loots','structure_loot',functionsApply=functionsApply_Structures_Loots)
+
+        fromJSON_InsertData(DMLfile,'Mobs','mob')
