@@ -8,7 +8,7 @@ if __name__=='__main__':
     with open('../../backup_Minecraft_Structures_Database.sql','w',encoding='utf-8') as backup:
         backup.write('-- Minecraft Structures Database\n')
         backup.write('-- Descripción: Archivo SQL para recuperar la base de datos\n')
-        backup.write('-- Autores\n\n\n')
+        backup.write('-- Autores: Roxana Pérez, Luis García, Antonio Suazo, Alexis Aguilar\n\n\n')
 
         backup.write('-- DDL: Creación de la base de datos y tablas\n')
         copy_file(backup,'DDL')
