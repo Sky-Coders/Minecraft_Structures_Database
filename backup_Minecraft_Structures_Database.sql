@@ -1,6 +1,6 @@
 -- Minecraft Structures Database
 -- Descripción: Archivo SQL para recuperar la base de datos
--- Autores
+-- Autores: Roxana Pérez, Luis García, Antonio Suazo, Alexis Aguilar
 
 
 -- DDL: Creación de la base de datos y tablas
